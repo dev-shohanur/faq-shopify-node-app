@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-6xl {
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+  border: 5px dashed red;
+}

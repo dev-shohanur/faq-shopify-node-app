@@ -4,6 +4,7 @@ import translations from "@shopify/polaris/locales/en.json";
 import { useRoutes } from "raviger";
 import routes from "./Routes";
 import AppBridgeProvider from "./providers/AppBridgeProvider";
+import "./App.css";
 
 export default function App() {
   const RouteComponents = useRoutes(routes);
@@ -14,6 +15,7 @@ export default function App() {
         <ui-nav-menu>
           <a href="/debug/data">Fetch Data</a>
           <a href="/debug/billing">Billing API</a>
+          <a href="/faq">FAQ</a>
         </ui-nav-menu>
         {RouteComponents}
       </AppBridgeProvider>

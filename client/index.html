@@ -2,7 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://unpkg.com/@shopify/polaris@12.1.1/build/esm/styles.css" />
     <script src="https://cdn.shopify.com/shopifycloud/app-bridge.js?apiKey=%VITE_SHOPIFY_API_KEY%"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: '#da373d',
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="shopify-app"></div>
