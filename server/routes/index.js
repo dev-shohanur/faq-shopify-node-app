@@ -1,5 +1,7 @@
 import { Router } from "express";
 import clientProvider from "../../utils/clientProvider.js";
+import verifyRequest from "../middleware/verifyRequest.js";
+import GroupModel from "../../utils/models/GroupModel.js";
 
 const userRoutes = Router();
 
@@ -10,6 +12,30 @@ userRoutes.get("/", (req, res) => {
 
 userRoutes.post("/", (req, res) => {
   return res.status(200).json(req.body);
+});
+
+userRoutes.post("/faq", verifyRequest, async (req, res) => {
+
+
+  const { name, description } = req.body;
+
+  const { id, shop } = res.locals.user_session
+
+  const result = await GroupModel.insertMany({ name, description, status: true, id: id, shop_name: shop })
+
+
+  return res.status(200).json({ result, success: true });
+});
+userRoutes.get("/faq", verifyRequest, async (req, res) => {
+  const { id, shop } = res.locals.user_session
+  try {
+    const result = await GroupModel.find({ id: id, shop_name: shop });
+
+    return res.status(200).json({ result, success: true });
+  } catch (error) {
+    console.error("Error handling FAQ API request:", error);
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 userRoutes.get("/debug/gql", async (req, res) => {

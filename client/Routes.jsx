@@ -7,6 +7,7 @@ import GetData from "./pages/debug/Data";
 import DebugIndex from "./pages/debug/Index";
 import ActiveWebhooks from "./pages/debug/Webhooks";
 import Faq from "./pages/Faq/Faq";
+import LayOut from "./pages/Faq/LayOut";
 
 const routes = {
   "/": () => <Index />,
@@ -16,6 +17,7 @@ const routes = {
   "/debug/webhooks": () => <ActiveWebhooks />,
   "/debug/billing": () => <BillingAPI />,
   "/faq": () => <Faq />,
+  "/layout": () => <LayOut />,
   "/debug/data": () => <GetData />,
 
   //Add your routes here
